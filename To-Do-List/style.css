@@ -42,9 +42,12 @@ body {
     border: 1px solid blue;
     display: flex;
     align-items: center;
-    
-    
     margin-top: 10px;
+    width: 100%;
+    padding-right: 10px;
+    
+    
+    
 }
 
 .check_list {
@@ -53,14 +56,21 @@ body {
     width: 20px;
     border-radius: 50%;
     cursor: pointer;
+    flex-shrink: 0;
 
 }
 
 .task_name {
     text-align: start;
+    margin-left: 10px;
+    margin-right: 25px;
 }
 
 .delete_task {
     height: 100%;
     cursor: pointer;
+    padding: 5px 15px;
+    
+    
+
 }
