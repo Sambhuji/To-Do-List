@@ -20,10 +20,17 @@ function renderTask() {
 
         const checkList = document.createElement('div');
         checkList.classList.add('check_list');
+        checkList.innerHTML = `<i class="fa-solid fa-check"></i>`;
+        if (task.completed) {
+            checkList.classList.toggle('active');
+        }
 
         const taskName = document.createElement('p');
         taskName.classList.add('task_name');
         taskName.innerText = task.item;
+        if (task.completed) {
+            taskName.classList.toggle('active');
+        }
 
         const deleteTask = document.createElement('button');
         deleteTask.classList.add('delete_task');
@@ -37,10 +44,19 @@ function renderTask() {
 
         toDoListDiv.appendChild(taskDiv);
 
+        checkList.addEventListener('click', () => {
+            console.log('clicked')
+            checkList.classList.toggle('active');
+            taskName.classList.toggle('active');
+            task.completed = checkList.classList.contains('active');
+            localStorage.setItem('myLocalData', JSON.stringify(myArryData));
+
+        })
+
         deleteTask.addEventListener('click', (e) => {
             e.preventDefault();
 
-            const index = e.target.dataset.index;
+            const index = e.currentTarget.dataset.index;
             myArryData.splice(index, 1);
             localStorage.setItem('myLocalData', JSON.stringify(myArryData));
             renderTask();
@@ -58,16 +74,19 @@ addTask.addEventListener('click', (e) => {
 
     const inputValue = inputBar.value.trim();
     inputBar.value = '';
-    myArryData.push({ item: `${inputValue}`, completed: false });
-    localStorage.setItem('myLocalData', JSON.stringify(myArryData));
-    renderTask();
+    if (inputValue !== '') {
+        if (myArryData.some((task) => task.item === inputValue)) {
+            alert(`This task is alreay added`)
+
+        } else {
+            myArryData.push({ item: `${inputValue}`, completed: false });
+            localStorage.setItem('myLocalData', JSON.stringify(myArryData));
+            renderTask();
+        }
+
+    } else {
+        alert(`Task can't be empty`)
+    }
+
 })
-
-
-
-
-
-
-
-
 

@@ -7,12 +7,18 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+main {
+   padding-inline: 16px;
+}
 
 .container {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     max-width: 700px;
     margin: 50px auto;
     padding: 25px;
+    border-radius: 5px;
+    background-color: rgb(225, 228, 228);
+    box-shadow: 2px 2px 8px rgba(8, 8, 8, 0.801);
 }
 
 .title {
@@ -20,7 +26,7 @@ body {
 }
 
 .input_div {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 35px;
     margin-block: 10px;
     display: flex;
@@ -31,20 +37,38 @@ body {
 
 .input_bar {
     width: 65%;
+    border: 0;
+    outline: none;
+    border-radius: 3px;
+    padding-left: 10px;
+}
+.input_bar::placeholder {
+    font-size: 1rem;
+    opacity: 0.5;
+    font-family: inherit;
 }
 
 .add_task {
     padding-inline: 15px;
     cursor: pointer;
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(163, 243, 126);
+    transition: 0.2s ease;
+
+}
+.add_task:hover {
+    background-color: rgb(96, 212, 42);
 }
 
 .task_div {
-    border: 1px solid blue;
+    border-bottom: 2px solid rgba(54, 53, 53, 0.364);
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 10px;
     width: 100%;
+    padding-bottom: 10px;
     
     
 }
@@ -62,7 +86,16 @@ body {
     border-radius: 50%;
     cursor: pointer;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: white;
 
+}
+.check_list.active {
+    background-color: green;
+    border-color: green;
 }
 
 .task_name {
@@ -70,12 +103,41 @@ body {
     margin-left: 10px;
     margin-right: 25px;
 }
+.task_name.active {
+    color: green;
+    text-decoration: line-through;
+}
 
 .delete_task {
     height: 100%;
     cursor: pointer;
-    padding: 5px 15px;
-    
-    
-
+    padding: 3px 10px;
+    border: 0;
+    border-radius: 3px;
+    background-color: orange;
+    transition: 0.2s ease;
 }
+.delete_task:hover {
+    background-color: orangered;
+}
+
+@media screen and (max-width: 469px) {
+
+    .title {
+        font-size: 1.5rem;
+    }
+    .input_div {
+        /* border: 1px solid red; */
+        height: 25px;
+        gap: 10px;
+    }
+    .check_list {
+        height: 18px;
+        width: 18px;
+    }
+       
+        
+    
+}
+    
+    
