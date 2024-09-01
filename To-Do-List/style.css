@@ -42,13 +42,18 @@ body {
     border: 1px solid blue;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-top: 10px;
     width: 100%;
-    padding-right: 10px;
-    
     
     
 }
+.check_task_div {
+    display: flex;
+    align-items: center;
+}
+    
+    
 
 .check_list {
     border: 1px solid gray;

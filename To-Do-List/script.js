@@ -14,6 +14,10 @@ function renderTask() {
 
         const taskDiv = document.createElement('div');
         taskDiv.classList.add('task_div');
+
+        const checkTaskDiv = document.createElement('div');
+        checkTaskDiv.classList.add('check_task_div');
+
         const checkList = document.createElement('div');
         checkList.classList.add('check_list');
 
@@ -26,8 +30,9 @@ function renderTask() {
         deleteTask.innerText = 'Delete';
         deleteTask.dataset.index = index;
 
-        taskDiv.appendChild(checkList);
-        taskDiv.appendChild(taskName);
+        checkTaskDiv.appendChild(checkList);
+        checkTaskDiv.appendChild(taskName);
+        taskDiv.appendChild(checkTaskDiv);
         taskDiv.appendChild(deleteTask);
 
         toDoListDiv.appendChild(taskDiv);
